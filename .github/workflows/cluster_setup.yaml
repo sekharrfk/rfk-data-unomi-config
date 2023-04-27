@@ -29,7 +29,7 @@ jobs:
       - name: commit the files
         run:  git commit -am "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
       - name: create a pr
-        run:  gh pr create --title "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
+        run:  gh pr create --title "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}" --body ""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: merge the pr
