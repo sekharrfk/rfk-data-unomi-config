@@ -22,6 +22,10 @@ jobs:
       - name: create cluster config files
         working-directory: ./scripts
         run:  python create_cluster.py ${{ inputs.environment }} ${{ inputs.domain_hash }} unomi-cluster-setup-${{ inputs.domain_hash }} ${{ inputs.region }}
+      - name: Set git identity
+        run: |
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
       - name: commit the files
         run:  git commit -am "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
       - name: create a pr
