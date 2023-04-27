@@ -26,6 +26,8 @@ jobs:
         run: |
             git config user.name 'github-actions[bot]'
             git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: test
+        run: git status
       - name: commit the files
         run:  git commit -am "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
       - name: test
