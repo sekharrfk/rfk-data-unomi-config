@@ -11,6 +11,8 @@ on:
       region:
         description: AWS region
         require: true
+permissions:
+  pull-requests: write
 jobs:
   cluster_setup:
     runs-on: ubuntu-latest
