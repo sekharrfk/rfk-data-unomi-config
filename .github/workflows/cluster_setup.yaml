@@ -37,7 +37,7 @@ jobs:
       - name: test
         run:  git status
       - name: create a pr
-        run:  gh pr create --title "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}" --body "" --head unomi-cluster-setup-${{ inputs.domain_hash }}
+        run:  gh pr create -B main -H unomi-cluster-setup-${{ inputs.domain_hash }} --title "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}" --body ""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: merge the pr
