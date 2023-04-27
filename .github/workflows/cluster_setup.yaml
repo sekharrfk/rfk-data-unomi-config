@@ -32,6 +32,8 @@ jobs:
         run: git status
       - name: commit the files
         run:  git add -A && git commit -am "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
+      - name: push to repo
+        run:  git push -u origin unomi-cluster-setup-${{ inputs.domain_hash }}
       - name: test
         run:  git status
       - name: create a pr
