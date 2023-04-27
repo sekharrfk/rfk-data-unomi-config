@@ -29,7 +29,7 @@ jobs:
       - name: test
         run: git status
       - name: commit the files
-        run:  git commit -am "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
+        run:  git add -A && git commit -am "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
       - name: test
         run:  git status
       - name: create a pr
