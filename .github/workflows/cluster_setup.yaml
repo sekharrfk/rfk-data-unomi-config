@@ -40,6 +40,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: merge the pr
-        run:  gh pr merge unomi-cluster-setup-${{ inputs.domain_hash }}
+        run:  gh pr merge unomi-cluster-setup-${{ inputs.domain_hash }} --merge
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
