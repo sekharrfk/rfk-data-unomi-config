@@ -30,5 +30,9 @@ jobs:
         run:  git commit -am "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
       - name: create a pr
         run:  gh pr create --title "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: merge the pr
         run:  gh pr merge unomi-cluster-setup-${{ inputs.domain_hash }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
