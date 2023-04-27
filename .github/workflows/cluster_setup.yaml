@@ -1,0 +1,31 @@
+name: Unomi Cluster Setup
+on:
+  workflow_dispatch:
+    inputs:
+      domain_hash:
+        description: Domain Hash
+        require: true
+      environment:
+        description: Environment
+        require: true
+      region:
+        description: AWS region
+        require: true
+jobs:
+  cluster_setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo checkout
+        uses: actions/checkout@v3
+      - name: create branch
+        run:  git checkout -b unomi-cluster-setup-${{ inputs.domain_hash }}
+      - name: working directory
+        run:  cd scripts
+      - name: create cluster config files
+        run:  python create_cluster.py ${{ inputs.environment }} ${{ inputs.domain_hash }} unomi-cluster-setup-${{ inputs.domain_hash }} ${{ inputs.region }}
+      - name: commit the files
+        run:  git commit -am "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
+      - name: create a pr
+        run:  gh pr create --title "add ${{ inputs.domain_hash }} cluster to ${{ inputs.environment }}-${{ inputs.region }}"
+      - name: merge the pr
+        run:  gh pr merge unomi-cluster-setup-${{ inputs.domain_hash }}
