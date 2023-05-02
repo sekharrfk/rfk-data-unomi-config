@@ -27,7 +27,7 @@ USER_API_SCHEMA_ENDPOINT = "/schemas"
 USER_ATTRIBUTES_ENDPOINT = "/user-attributes"
 
 RULES_DIR = "rules"
-TEMPLATES_DIR = "scripts/deployment/templates/"
+TEMPLATES_DIR = "scripts/templates/"
 PROFILE_PROPERTY_TEMPLATE_FILE = "profile-property.j2"
 SCOPES_TEMPLATE_FILE = "scopes.j2"
 
