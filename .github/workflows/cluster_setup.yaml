@@ -51,10 +51,10 @@ jobs:
       - name: Repo checkout
         uses: actions/checkout@v3
       - name: scope setup
-        run:  python scripts/deployment/initialize_cluster.py -e ${{ inputs.environment }} -o scopes -d ${{ inputs.domain_hash }}
+        run:  python scripts/initialize_cluster.py -e ${{ inputs.environment }} -o scopes -d ${{ inputs.domain_hash }}
       - name: rules setup
-        run:  python scripts/deployment/initialize_cluster.py -e ${{ inputs.environment }} -o rules -d ${{ inputs.domain_hash }}
+        run:  python scripts/initialize_cluster.py -e ${{ inputs.environment }} -o rules -d ${{ inputs.domain_hash }}
       - name: schema setup
-        run:  python scripts/deployment/initialize_cluster.py -e ${{ inputs.environment }} -o schemas -d ${{ inputs.domain_hash }}
+        run:  python scripts/initialize_cluster.py -e ${{ inputs.environment }} -o schemas -d ${{ inputs.domain_hash }}
       - name: profile-properties setup
-        run:  python scripts/deployment/initialize_cluster.py -e ${{ inputs.environment }} -o profile-properties -d ${{ inputs.domain_hash }}
+        run:  python scripts/initialize_cluster.py -e ${{ inputs.environment }} -o profile-properties -d ${{ inputs.domain_hash }}
