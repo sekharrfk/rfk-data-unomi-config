@@ -26,7 +26,7 @@ USER_API_URL = "https://data-user-api.{env}.rfksrv.com/v1/config"
 USER_API_SCHEMA_ENDPOINT = "/schemas"
 USER_ATTRIBUTES_ENDPOINT = "/user-attributes"
 
-RULES_DIR = "rules"
+RULES_DIR = "scripts/rules"
 TEMPLATES_DIR = "scripts/templates/"
 PROFILE_PROPERTY_TEMPLATE_FILE = "profile-property.j2"
 SCOPES_TEMPLATE_FILE = "scopes.j2"

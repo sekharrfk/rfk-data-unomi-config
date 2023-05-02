@@ -136,7 +136,7 @@ def read_config_file_system(args):
         content_json = json.loads(content)
         content_data[content_json.get("metadata").get("id")] = content_json
 
-    return {object_dir: content_data}
+    return {args.get(OBJECTS): content_data}
 
 
 def read_config_user_api(args):
