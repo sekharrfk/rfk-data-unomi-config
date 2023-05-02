@@ -45,6 +45,7 @@ jobs:
         run:  sleep 180
 
   cluster_initialization:
+    needs:   cluster_setup
     runs-on: ubuntu-latest
     steps:
       - name: Repo checkout
