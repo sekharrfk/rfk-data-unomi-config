@@ -1,10 +1,11 @@
-from vars import *
 import json
-from jinja2 import Environment, FileSystemLoader
 import logging
 import requests
+from jinja2 import Environment, FileSystemLoader
 from requests.auth import HTTPBasicAuth
 from requests.exceptions import HTTPError
+
+from vars import *
 
 
 def call_unomi_api(url, payload):
@@ -14,6 +15,8 @@ def call_unomi_api(url, payload):
     :param payload: definition for the new object
     :return: response object
     """
+    auth_token = os.getenv(AUTH_TOKEN, default=None)
+    REQUEST_HEADERS[API_KEY_HEADER] = auth_token
     response = requests.post(url=url,
                              headers=REQUEST_HEADERS,
                              auth=HTTPBasicAuth(KARAF_USER, KARAF_PASS),
@@ -221,7 +224,7 @@ def get_profile_properties_body(user_api_response):
             continue
         payload = profile_template.render(mapping_key)
         content_data[mapping_key.get("profile_id")] = json.loads(payload)
-    return {PROFILE_PROPERTIES_IDENTIFIER : content_data}
+    return {PROFILE_PROPERTIES_IDENTIFIER: content_data}
 
 
 def get_scopes_body(domain_hash):
