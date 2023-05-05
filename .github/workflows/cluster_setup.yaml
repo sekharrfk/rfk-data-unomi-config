@@ -63,9 +63,17 @@ jobs:
         uses: actions/checkout@v3
       - name: scope setup
         run:  python scripts/initialize_cluster.py -e ${{ inputs.environment }} -o scopes -d ${{ inputs.domain_hash }}
+        env:
+          auth_token: ${{ secrets.auth_token }}
       - name: rules setup
         run:  python scripts/initialize_cluster.py -e ${{ inputs.environment }} -o rules -d ${{ inputs.domain_hash }}
+        env:
+          auth_token: ${{ secrets.auth_token }}
       - name: schema setup
         run:  python scripts/initialize_cluster.py -e ${{ inputs.environment }} -o schemas -d ${{ inputs.domain_hash }}
+        env:
+          auth_token: ${{ secrets.auth_token }}
       - name: profile-properties setup
         run:  python scripts/initialize_cluster.py -e ${{ inputs.environment }} -o profile-properties -d ${{ inputs.domain_hash }}
+        env:
+          auth_token: ${{ secrets.auth_token }}
